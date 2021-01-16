@@ -1,0 +1,64 @@
+version: '3.4'
+
+services:
+  catalog.api:
+    image: ${DOCKER_REGISTRY-}catalogapi
+    build:
+      context: .
+      dockerfile: src/Services/Catalog/Catalog.API/Dockerfile
+    ports:
+      - 55001:80
+    depends_on:
+      - newlifetrip.db
+
+  newlifetrip.db:
+    image: "mcr.microsoft.com/mssql/server"
+    command: /bin/bash /entrypoint.sh
+    environment:
+        SA_PASSWORD: "Newlifetrip_123"
+        ACCEPT_EULA: "Y"
+    ports:
+      - 11433:1433
+    volumes:
+      - ./NewLifeTrip.DB/entrypoint.sh:/entrypoint.sh
+      - ./NewLifeTrip.DB/NewLifeTrip.sh:/NewLifeTrip.sh
+      - ./NewLifeTrip.DB/script.sql:/script.sql
+
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    build:
+      context: .
+      dockerfile: src/Services/Basket/Basket.API/Dockerfile
+    ports:
+      - 55002:80
+    depends_on:
+      - newlifetrip.db
+
+  booking.api:
+    image: ${DOCKER_REGISTRY-}bookingapi
+    build:
+      context: .
+      dockerfile: src/Services/Booking/Booking.API/Dockerfile
+    ports:
+      - 55003:80
+    depends_on:
+      - newlifetrip.db
+  connectionmanagement.api:
+    image: ${DOCKER_REGISTRY-}connectionmanagementapi
+    build:
+      context: .
+      dockerfile: src/Services/ConnectionManagement/ConnectionManagement.API/Dockerfile
+    ports:
+      - 55004:80
+    depends_on:
+      - newlifetrip.db
+
+  payment.api:
+    image: ${DOCKER_REGISTRY-}paymentapi
+    build:
+      context: .
+      dockerfile: src/Services/Payment/Payment.API/Dockerfile
+    ports:
+      - 55005:80
+    depends_on:
+      - newlifetrip.db
