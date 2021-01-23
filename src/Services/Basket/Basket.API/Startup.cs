@@ -36,8 +36,7 @@ namespace Basket.API
                     Title = "NewLifeTrip",
                     Version = "v1"
                 });
-                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,
-                   $"{ Assembly.GetExecutingAssembly().GetName().Name}.xml"));
+
             });
         }
 
