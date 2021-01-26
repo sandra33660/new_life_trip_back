@@ -9,8 +9,6 @@ namespace Catalog.API.Models
     {
         Task<IEnumerable<Trip>> GetTrip(int pageSize, int pageNum);
         Task<Trip> GetTripById(int idTrip);
-        Task<Trip> InsertTrip(string Details, string Title, DateTime StartDate, DateTime FinalDate, int Price, int NumberOfParticipants);
-        Task<Trip> DeleteTrip(int idTrip);
-        Task<Trip> UpdateTrip(int idTrip);
+
     }
 }

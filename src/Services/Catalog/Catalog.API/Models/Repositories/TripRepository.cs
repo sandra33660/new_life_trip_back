@@ -18,13 +18,7 @@ namespace Catalog.API.Models
                                             Trip.NumberOfParticipants
                                      FROM Trip                                  
                                      ";
-        const string insertQuery = @"INSERT INTO Trip (Trip.Details, Trip.Title, Trip.StartDate,Trip.FinalDate,  Trip.Price,  Trip.NumberOfParticipants)
-                                         VALUES ({Details}, {Title}, {StartDate}, {FinalDate}, {Price}, {NumberOfParticipants})";
-        const string deleteQuery = @"DELETE FROM `Trip`
-                                        WHERE `IdTrip` = idChoisit";
-        const string updateQuery = @"UPDATE Trip
-                                     SET nom_colonne_1 = 'nouvelle valeur'
-                                     WHERE condition";
+
         public TripRepository(string connectionString)
         {
             db = new SqlConnection(connectionString);
@@ -55,13 +49,7 @@ namespace Catalog.API.Models
                 new { PageNum = pageNum, PageSize = pageSize });
 
         }
-        public async Task<Trip> InsertTrip(string Details, string Title, DateTime StartDate, DateTime FinalDate, int Price, int NumberOfParticipants) => await db.QueryFirstOrDefaultAsync<Trip>($"{insertQuery}");
 
-
-
-
-        public async Task<Trip> DeleteTrip(int id) => await db.QueryFirstOrDefaultAsync<Trip>($"{deleteQuery} WHERE Trip.IdTrip = @id", new { id = id });
-        public async Task<Trip> UpdateTrip(int id) => await db.QueryFirstOrDefaultAsync<Trip>($"{updateQuery} WHERE Trip.IdTrip = @id", new { id = id });
 
 
     }

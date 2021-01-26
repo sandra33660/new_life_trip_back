@@ -79,18 +79,7 @@ namespace Catalog.API.Controllers
                 return res;
             }
         }
-        [HttpPost("trip")]
-        public async Task<ActionResult<Trip>> InsertTrip([FromBody] string details, string title, DateTime startDate, DateTime finalDate, int price, int numberOfPlaceParticipants)
-        {
-            try
-            {
-                return await _repoTrip.InsertTrip(details, title, startDate, finalDate, price, numberOfPlaceParticipants);
-            }
-            catch (ArgumentOutOfRangeException e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
+
         /// <summary>
         /// Get a paginated list of the catalog accomodation
         /// </summary>
