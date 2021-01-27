@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   catalog.api:
-    image: ${DOCKER_REGISTRY-}catalogapi
+    image: catalogapi
     build:
       context: .
       dockerfile: src/Services/Catalog/Catalog.API/Dockerfile
@@ -10,8 +10,8 @@ services:
       - 55001:80
     depends_on:
       - newlifetrip.db
-
   newlifetrip.db:
+    container_name: newlifetrip.db
     image: "mcr.microsoft.com/mssql/server"
     command: /bin/bash /entrypoint.sh
     environment:
