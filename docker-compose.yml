@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   catalog.api:
-    image: catalogapi
+    image: ${DOCKER_REGISTRY-}catalogapi
     build:
       context: .
       dockerfile: src/Services/Catalog/Catalog.API/Dockerfile
