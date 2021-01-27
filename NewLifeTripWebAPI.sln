@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewLifeTrip.DB", "NewLifeTr
 		NewLifeTrip.DB\script.sql = NewLifeTrip.DB\script.sql
 	EndProjectSection
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0F7AD68C-6A61-4F10-8974-4BC3E419CBA0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,10 +22,6 @@ Global
 		{3ED38132-8C6C-40A7-8275-0C850380FE9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ED38132-8C6C-40A7-8275-0C850380FE9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ED38132-8C6C-40A7-8275-0C850380FE9A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0F7AD68C-6A61-4F10-8974-4BC3E419CBA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F7AD68C-6A61-4F10-8974-4BC3E419CBA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F7AD68C-6A61-4F10-8974-4BC3E419CBA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F7AD68C-6A61-4F10-8974-4BC3E419CBA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
