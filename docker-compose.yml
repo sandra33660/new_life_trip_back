@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: src/Services/Catalog/Catalog.API/Dockerfile
     ports:
-      - 55000:80
+      - 55012:80
     depends_on:
       - newlifetrip.db
 
@@ -15,7 +15,7 @@ services:
     image: "mcr.microsoft.com/mssql/server"
     command: /bin/bash /entrypoint.sh
     environment:
-        SA_PASSWORD: "Newlifetrip_123"
+        SA_PASSWORD: "Gribouille@du/33"
         ACCEPT_EULA: "Y"
     ports:
       - 11433:1433

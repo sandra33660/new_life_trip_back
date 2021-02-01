@@ -26,6 +26,8 @@ namespace Catalog.API
             services.AddTransient<IActivityRepository>(s => new ActivityRepository(Configuration.GetConnectionString("Catalog")));
             services.AddTransient<ICityRepository>(s => new CityRepository(Configuration.GetConnectionString("Catalog")));
             services.AddControllers();
+            services.AddCors(options => options.AddDefaultPolicy(
+            builder => builder.WithOrigins("http://localhost:3000")));
             services.AddSwaggerGen(
            c =>
            {
@@ -54,6 +56,7 @@ namespace Catalog.API
                 });
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthorization();
 
