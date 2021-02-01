@@ -17,5 +17,6 @@ namespace Catalog.API.Models
         public string Photo { get; set; }
         public int NumberOfParticipants { get; set; }
 
+
     }
 }

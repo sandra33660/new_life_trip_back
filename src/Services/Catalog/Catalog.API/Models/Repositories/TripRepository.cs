@@ -14,9 +14,10 @@ namespace Catalog.API.Models
         const int pageSizeMax = 50;
         const int pageNumMin = 0;
         const string selectQuery = @"SELECT Trip.IdTrip, Trip.Details, Trip.Title, Trip.StartDate,  Trip.FinalDate,      
-                                            Trip.Price,        
-                                            Trip.NumberOfParticipants
-                                     FROM Trip                                  
+                                            Trip.Price, Trip.NumberOfParticipants,Photo.Photos
+                                     FROM Trip 
+                                     INNER JOIN Photo ON Trip.IdTrip = Photo.IdTrip
+                                     
                                      ";
 
         public TripRepository(string connectionString)
